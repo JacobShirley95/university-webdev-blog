@@ -1,0 +1,91 @@
+<!doctype html>
+<!--HTML5 doctype declaration -->
+<html lang="en">
+<!--default language of the document content -->
+
+<head>
+    <!--character encoding for the document (Unicode) -->
+    <meta charset="utf-8">
+    <!--web page title -->
+    <title>Contact</title>
+    <!--Set the viewport meta for media queries -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--Load stylesheets--> 
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Proza+Libre|Roboto|Work+Sans" rel="stylesheet">
+    <!--Load scripts-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/enquire/dist/enquire.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <!--The main header for the page -->
+    <header id="page-title">
+        <h1>Contact</h1>
+        <h4>Contact me!</h4>
+    </header>
+    <!--The navigation sidebar-->
+    <aside id="left-sidebar">
+        <section class="navigation">
+            <h3>Navigation</h3>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="link-item">Journal</a></li>
+                    <li><a href="tutorial.html" class="link-item">Tutorial</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <div id="wrapper">
+        <!--The 'wrapper' div contains all the page content and can be styled -->
+        <main>
+            <!--The main page content -->
+            <section>
+                <!-- This is a hidden header just for screen readers -->
+                <h2 class="hidden">Contact form</h2>
+
+                <form id="contact-form">
+                    <fieldset>
+                        <legend>Contact details</legend>
+                        <label for="name">Name <em>(required)</em></label>
+                        <input type="text" id="name" required/>
+                        <label for="email">Email address <em>(required)</em></label>
+                        <input type="text"  id="email" required/>
+                        <label for="url">Website address</label>
+                        <input type="text" id="url" placeholder="http://" />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Feedback</legend>
+                        <textarea id="feedback" rows="10"></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Would you like receive our weekly newsletter via email?</legend>
+                        <label for="information-yes" class="radio-label">Yes</label>
+                        <input type="radio" id="information-yes" name="information" 
+                        value="yes" />
+                        <label for="information-no" class="radio-label">No</label>
+                        <input type="radio" id="information-no" name="information" 
+                        value="no" checked />
+                    </fieldset>
+                    <fieldset>
+                        <input type="submit" />
+                        <input type="reset" />
+                    </fieldset>
+                </form>
+            </section>
+            <section>
+                <a id="html-logo" href="http://www.w3.org/html/logo/">
+                    <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+                </a>
+            </section>
+        </main>
+        <footer>
+            <!--Footer content -->
+            <small>&copy; 2017, Jacob Shirley.</small>
+        </footer>
+    </div>
+</body>
+
+</html>

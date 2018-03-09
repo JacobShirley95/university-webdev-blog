@@ -1,0 +1,26 @@
+{
+  "name": "university-webdev-blog",
+  "authors": [
+    "Jacob Shirley <jakeshirley2@gmail.com>"
+  ],
+  "description": "A blog following the development of my studies and website design in Web Development at the University of Brighton.",
+  "main": "index.html",
+  "keywords": [
+    "university",
+    "web-dev",
+    "blog"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "enquire": "^2.1.2"
+  }
+}

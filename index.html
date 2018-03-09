@@ -1,0 +1,409 @@
+<!doctype html>
+<!--HTML5 doctype declaration -->
+<html lang="en">
+<!--default language of the document content -->
+
+<head>
+    <!--character encoding for the document (Unicode) -->
+    <meta charset="utf-8">
+    <!--web page title -->
+    <title>HTML/CSS Journal</title>
+    <!--Set the viewport meta for media queries -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--Load stylesheets--> 
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Proza+Libre|Roboto|Work+Sans" rel="stylesheet">
+    <!--Load scripts-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/enquire/dist/enquire.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <!--The main header for the page -->
+    <header id="page-title">
+        <h1>HTML/CSS Journal</h1>
+        <h4>For all your journal needs...</h4>
+    </header>
+    <!--The navigation sidebar-->
+    <aside id="left-sidebar">
+        <section class="navigation">
+            <h3>Navigation</h3>
+            <nav>
+                <ul>
+                    <li><a href="tutorial.html" class="link-item">Tutorial</a></li>
+                    <li><a href="contact.html" class="link-item">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="table-of-contents" onclick="void(0)">
+            <h3>Table of contents<span id="hamburger"></span></h3>
+            <nav>
+                <ul>
+                    <li><a href="#post-1" class="link-item">Week 1: Starting the journal</a></li>
+                    <li><a href="#post-2" class="link-item">Week 2: Time tag, in-page links, figure and figcaption tags</a></li>
+                    <li><a href="#post-3" class="link-item">Week 3: More HTML markup</a></li>
+                    <li><a href="#post-4" class="link-item">Week 4: Website upgrade</a></li>
+                    <li><a href="#post-5" class="link-item">Week 5: CSS restructuring, removed nav JavaScript, table of contents, new CSS</a></li>
+                    <li><a href="#post-6" class="link-item">Week 6: Added section headings, cleaned up tags, moved nav bar to sidebar, made page responsive</a></li>
+                    <li><a href="#post-7" class="link-item">Week 7: Starting the tutorial, flexible images</a></li>
+                    <li><a href="#post-8" class="link-item">Week 8: Hamburger menu, cleaning up CSS, using the nav tag</a></li>
+                    <li><a href="#post-9" class="link-item">Week 9: Contact form, TOC scrollbar, feedback</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+
+    <div id="wrapper">
+        <!--The 'wrapper' div contains all the page content and can be styled -->
+        <main>
+            <!--The main page content -->
+            <section>
+                <!-- This is a hidden header just for screen readers -->
+                <h2 class="hidden">Weeky posts</h2>
+                <article id="post-1" class="post">
+                    <header>
+                        <h2 class="title">
+                            Week 1: Starting the journal
+                        </h2>
+                        <div class="desc">
+                            <h4 class="author">
+                                Jacob Shirley
+                            </h4>
+                            <h4 class="date">
+                                <time datetime="2016-10-07">October 7th, 2016</time>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>For the first week lab tutorial I started a journal to document my learning of HTML and CSS. I already have quite a bit of knowledge on these two languages so I'm going to focus on understanding new areas of both of them. I'm also excited about the second semester where we get to use JavaScript.</p>
+                        <h3>
+                            Summary:
+                        </h3>
+                        <ul>
+                            <li>Set up folders to store my website in my university web space.</li>
+                            <li>Downloaded Sublime Text 3.</li>
+                            <li>Brushed up on the <strong data-tag>article</strong>, <strong data-tag>main</strong>, and <strong data-tag>section</strong> elements.</li>
+                            <li>Did some basic styling of the journal using CSS: the author header now has blue text, and I removed some margins and padding from the post headers.</li>
+                            <li>Started writing journal content.</li>
+                            <li>Validated my HTML on the W3C Validator<a class="cite-link" href="#cite-1">[1]</a>.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="post-2" class="post">
+                    <header>
+                        <h2 class="title">
+                            Week 2: Time tag, in-page links, figure and figcaption tags
+                        </h2>
+                        <div class="desc">
+                            <h4 class="author">
+                                Jacob Shirley
+                            </h4>
+                            <h4 class="date">
+                                <time datetime="2016-10-10">October 10th, 2016</time>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>This week I started thinking about what kind of style I want my responsive website to have. I often find it's easier to make a page after I've thought of a style, rather than diving straight into the HTML and CSS and hoping I make something that looks nice. I then started learning about some new HTML5-specific tags: <strong data-tag>time</strong>, <strong data-tag>figure</strong> and <strong data-tag>figcaption</strong>. In the past I never used these as I usually found an HTML4 alternative, such as divs and spans.</p>
+                        <p>I also started using the in-page link functionality of anchor (<strong data-tag>a</strong>) tags. I believe this will be very useful in the future.</p>
+                        <h3>
+                            Summary:
+                        </h3>
+                        <ul>
+                            <li>Thought about the style of my responsive website.</li>
+                            <li>Learned about the <strong data-tag>time</strong>, <strong data-tag>figure</strong> and <strong data-tag>figcaption</strong> tags.</li>
+                            <li>Added an in-page link to this journal page.</li>
+                            <li>Added a timestamp to each post using the <strong data-tag>time</strong> tag.</li>
+                            <li>Validated my HTML on the W3C Validator<a class="cite-link" href="#cite-1">[1]</a>.</li>
+                            <li>Browsed the HTML5Doctor<a class="cite-link" href="#cite-2">[2]</a> website for other HTML5 tags.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="post-3" class="post">
+                    <header>
+                        <h2 class="title">Week 3: More HTML markup</h2>
+                        <div class="desc">
+                            <h4 class="author">Jacob Shirley</h4>
+                            <h4 class="date">
+                                <time datetime="2016-10-22">October 22nd, 2016</time>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>This week I learned three new tags: <strong data-tag>dl</strong>, <strong data-tag>dt</strong>, <strong data-tag>dd</strong>. They are used to make a description list, usually for definitions or glossary of terms. Then I added a test table to learn about the various tags used to create one. I also added some quoted text, and made an image link.</p>
+                        <h3>Demo:</h3>
+                        <h4>Table (table, tr, th, td)</h4>
+                        <table>
+                            <tr>
+                                <th>Capital</th>
+                                <th>Country</th>
+                                <th>Continent</th>
+                            </tr>
+                            <tr>
+                                <td>London</td>
+                                <td>England</td>
+                                <td>Europe</td>
+                            </tr>
+                            <tr>
+                                <td>Madrid</td>
+                                <td>Spain</td>
+                                <td>Europe</td>
+                            </tr>
+                            <tr>
+                                <td>Beijing</td>
+                                <td>China</td>
+                                <td>Asia</td>
+                            </tr>
+                        </table>
+                        <h4>Quoted text (blockquote, footer, cite)</h4>
+                        <blockquote>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor posuere neque, in mollis orci vestibulum nec. Suspendisse potenti. In varius commodo congue. Nam et est aliquet, mattis odio et, eleifend lacus. Donec a mauris vehicula elit porta mattis eget id purus. Nunc placerat consectetur justo id blandit. Suspendisse fermentum sapien ut neque rutrum, vel elementum sem malesuada.</p>
+                            <p>Cras a lectus luctus, auctor felis quis, pellentesque arcu. Mauris at justo sit amet dolor condimentum vestibulum. Morbi at libero vulputate, laoreet lacus quis, lobortis orci. Integer laoreet mollis sapien. Etiam auctor sem nisi, nec malesuada risus gravida sed. Nullam sem sapien, porttitor a odio vitae, fringilla ullamcorper metus. Duis venenatis tempus nunc. Quisque lacinia eleifend dictum. Quisque sit amet euismod ligula. Quisque porttitor nibh ut sapien congue, scelerisque semper sem facilisis. Donec quis finibus ex. Nunc nunc purus, tincidunt a porttitor quis, faucibus quis ligula. Vestibulum non gravida quam, a viverra nunc.
+                            </p>
+                            <footer>
+                                <cite>
+                                    Source: Lorum Ipsum Generator<a class="cite-link" href="#cite-3">[3]</a>
+                                </cite>
+                            </footer>
+                        </blockquote>
+                        <h4>Image link (a, img)</h4>
+                        <figure>
+                            <a href="https://lh3.googleusercontent.com/nkfMnJ3KXyJ0rJLxHhBZtYmxFBKu5lk8Xr_FnG2UkLgGfnFv9G1ZU7HbSiNMTzlFG1ARG0s=s630-fcrop64=1,000007efffffee09"><img src="https://lh3.googleusercontent.com/nkfMnJ3KXyJ0rJLxHhBZtYmxFBKu5lk8Xr_FnG2UkLgGfnFv9G1ZU7HbSiNMTzlFG1ARG0s=s630-fcrop64=1,000007efffffee09" width="200" alt="Cute cats" /></a>
+                            <figcaption>Source: Google Images<a class="cite-link" href="#cite-4">[4]</a></figcaption>
+                        </figure>
+                        <h3>Summary:</h3>
+                        <ul>
+                            <li>Learned three new tags: <strong data-tag>dl</strong>, <strong data-tag>dt</strong>, <strong data-tag>dd</strong>, used for description lists or glossaries.</li>
+                            <li>Added a test table to learn the table tags.</li>
+                            <li>Added some quoted text.</li>
+                            <li>Made an image link.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="post-4" class="post">
+                    <header>
+                        <h2 class="title">Week 4: Website upgrade</h2>
+                        <div class="desc">
+                            <h4 class="author">Jacob Shirley</h4>
+                            <h4 class="date">
+                                <time datetime="2016-10-24">October 24th, 2016</time>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>This week I created a style for my journal, tutorial and contact pages. To begin with I started using a website called JSFiddle, which is an online platform for building HTML/CSS/JavaScript demos<a class="cite-link" href="#cite-5">[5]</a>. I only had a vague idea for what a style I wanted and that was minimalistic. I started by adding a margin to the wrapper so that the posts would appear centered.</p>
+                        <p>I then started working on the style of the posts. I wanted them to be easily readable but also making the page look neat and without clutter. I finally settled with a thin box shadow generated using the CSSmatic box shadow generator<a class="cite-link" href="#cite-6">[6]</a>. An early prototype can be seen <a href="https://jsfiddle.net/Auferious/6wyu2Lqe/5/">here</a>.</p><p>Next I found some fonts on the Google Fonts<a class="cite-link" href="#cite-7">[7]</a> website and styled the h1..h6 tags to use them.</p>
+                        <p>Once the style of the posts was <a href="https://jsfiddle.net/Auferious/6wyu2Lqe/10/">done</a> I started work on the page header (title and tagline) and the navigation bar. For the header all I did was centre the text (<strong>text-align: center</strong>). For the navigation bar a little more work was needed to centre it: I used the flex layout system so that each navigation element would grow or shrink to fill the remaining space. This has another advantage of being easily customisable: if I want to add a new navigation item, no other CSS code will be needed to make it fit equally. At this point I styled the page links so that they aren't the ugly default colours, and also used a small amount of JavaScript, using jQuery<a class="cite-link" href="#cite-8">[8]</a>, to add a red border to a nav item when hovered over.</p>
+                        <p>Finally after validating the HTML I decided I needed a quicker way of writing posts since I won't be using a content management system backend. The solution I came up with was to build a page to generate a post<a class="cite-link" href="#cite-9">[9]</a>. All it does is insert information from a form into a string and outputs it into the output text area. I can then copy and paste this into my journal. I may keep adding to it but at the moment it uses no CSS so it's not at all user friendly.</p>
+                        <p>Here's a screenshot of the old page:</p>
+                        <figure>
+                            <a href="images/oldpage.png"><img class="bordered" src="images/oldpage-1142x571.png" width="1142" alt="Picture of the old page style" /></a>
+                            <figcaption>Source: Shirley, J., my learning journal without much CSS styling<a class="cite-link" href="#cite-10">[10]</a></figcaption>
+                        </figure>
+                        <h3>Summary:</h3>
+                        <ul>
+                            <li>Started styling.</li>
+                            <li>Added a "tag" class to easily display &lt; and &gt; symbols around tags.</li>
+                            <li>Added box shadow to posts.</li>
+                            <li>Found fonts and added them to the <strong data-tag>h1..h6</strong> tags.</li>
+                            <li>Styled and centered the page header using <strong>text-align: center</strong>.</li>
+                            <li>Styled and centered the navigation bar using flex.</li>
+                            <li>Removed default styling from links and added a hover state to nav items.</li>
+                            <li>Created a post generator.</li>
+                            <li>Styled <strong data-tag>blockquote</strong> and <strong data-tag>table</strong>.</li>
+                            <li>Added normalize.css.</li>
+                            <li>Validated my CSS using the W3C CSS Validator<a class="cite-link" href="#cite-11">[11]</a>.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="post-5" class="post">
+                    <header>
+                        <h2 class="title">Week 5: CSS restructuring, removed nav JavaScript, table of contents, new CSS</h2>
+                        <div class="desc">
+                            <h4 class="author">Jacob Shirley</h4>
+                            <h4 class="date">
+                                <time datetime="2016-10-28">October 28th, 2016</time>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>This week I did some CSS updating and restructuring: moved the basic CSS styles, such as h1..h6, to the top of the document, and added h5..h6 to the h4 styles; I renamed the selector <strong>.journal-title</strong> to <strong>#page-title</strong>, as well as making it an id; I removed the <strong data-tag>div</strong> containing the page title and tag line and made the surrounding header perform that function instead, I updated the <strong>line-height</strong> (to 1.5) property of the page to make it more readable, and I styled the HTML logo (<strong>float:right</strong>) and the <strong data-tag>img</strong> tag in the CSS document rather than inline-styling. I also put in some comment headings for anyone reading it.</p>
+                        <p>At this point I realised there was no need to use JavaScript for the border on the navigation links: it could all be done through CSS (<strong>a:hover</strong>). I therefore removed the <strong>.active</strong> CSS class which was originally used by JavaScript to be either added to the navigation list items (<strong data-tag>li</strong>) or removed when a link was hovered.</p>
+                        <p>What I also needed to add was a table of contents. This is useful because it makes the journal much more user friendly as it can easily be navigated, and I get the chance to use the <strong data-tag>aside</strong> tag and in-page links in a real context. I also wanted it to be sticky: when the user had scrolled beyond the "top" coordinate of the table of contents, it should "stick" to the browser viewport so it's always visible. I managed to achieve this using JavaScript as there is currently no viable way to do this through CSS alone. I therefore made a small JavaScript class called StickyMenu to make this code reusable for future projects (it's in script.js<a class="cite-link" href="#cite-12">[12]</a>). However, I didn't want this to happen when viewed on screens smaller than <strong>1000px</strong> (i.e. mobiles). For this I used a small JavaScript library called enquire.js<a class="cite-link" href="#cite-13">[13]</a> which allows JavaScript code to be executed when a CSS media query is activated or deactivated; in this case to enable the sticky menu when screen size is above <strong>1000px</strong> and disable it when below <strong>1000px</strong>. I also applied the hover styles of the table of contents links (class <strong>.link-item</strong>) to the navigation links.</p>
+                        <p>After reading the tutorial page, I decided to test some CSS I hadn't used before: <strong>text-indent</strong>, <strong>:first-letter</strong>, and clearing text around images with <strong>clear</strong>. Below is a demo of each of these:</p>
+                        <h3>Demo:</h3>
+                        <h4>text-indent</h4>
+                        <p class="indented">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor posuere neque, in mollis orci vestibulum nec. Suspendisse potenti. In varius commodo congue. Nam et est aliquet, mattis odio et, eleifend lacus. Donec a mauris vehicula elit porta mattis eget id purus. Nunc placerat consectetur justo id blandit. Suspendisse fermentum sapien ut neque rutrum, vel elementum sem malesuada.</p>
+                        <h4>:first-letter (for dropcaps)</h4>
+                        <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor posuere neque, in mollis orci vestibulum nec. Suspendisse potenti. In varius commodo congue. Nam et est aliquet, mattis odio et, eleifend lacus. Donec a mauris vehicula elit porta mattis eget id purus. Nunc placerat consectetur justo id blandit. Suspendisse fermentum sapien ut neque rutrum, vel elementum sem malesuada.</p>
+                        <h4>clear (clearing text around images)</h4>
+                        <figure class="float-left">
+                            <img src="images/kuala-lumpur-1820944_640.jpg" alt="Picture of Kuala Lumpur" width="640"/>
+                            <figcaption>Source: Mihalik, L., pixabay, picture of Kuala Lumpur<a class="cite-link" href="#cite-14">[14]</a></figcaption>
+                        </figure>
+                        <p class="clear"><strong>Cleared content:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor posuere neque, in mollis orci vestibulum nec. Suspendisse potenti. In varius commodo congue. Nam et est aliquet, mattis odio et, eleifend lacus. Donec a mauris vehicula elit porta mattis eget id purus. Nunc placerat consectetur justo id blandit. Suspendisse fermentum sapien ut neque rutrum, vel elementum sem malesuada.</p>
+                        <h3>Summary:</h3>
+                        <ul>
+                            <li>CSS restructuring.</li>
+                            <li>Achieved same functionality using just CSS instead of JavaScript for the navigation hover effects.</li>
+                            <li>Made a table of contents that sticks to the browser viewport when scrolled. It uses <strong>text-align: right</strong> to align the text to the right.</li>
+                            <li>Made the sticky menu code a JavaScript class to be used in later projects.</li>
+                            <li>Applied the table of contents hover styles to the navigation styles.</li>
+                            <li>Validated my HTML on the W3C Validator.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="post-6" class="post">
+                    <header>
+                        <h2 class="title">Week 6: Added section headings, cleaned up tags, moved nav bar to sidebar, made page responsive</h2>
+                        <div class="desc">
+                            <h4 class="author">Jacob Shirley</h4>
+                            <h4 class="date">
+                                <time datetime="2016-10-30">October 30th, 2016</time>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>According to the W3C HTML validator, every <strong data-tag>section</strong> element requires a header. However, for my main posts section I couldn't create a header that looked good, so I added a new class "hidden" specifically for elements that are needed by screen readers but look out of place when on a normal screen, when they are just hidden.</p>
+                        <p>I also discovered a cleaner solution to styling <strong>tag</strong> elements, i.e. writing <strong data-tag>div</strong>s in plain text without it being interpreted as HTML. I used an attribute selector (<strong>*[data-tag]</strong>)<a class="cite-link" href="#cite-15">[15]</a>, where any element with a <strong>data-tag</strong> attribute is styled with tag properties (bold, with &lt; and &gt; before and after it). This looks much neater from an HTML point-of-view.</p>
+                        <p>I decided to combine the navigation list with the sidebar. This made sense for a couple of reasons: it adds more continuity by grouping related parts of the page together, and because they use the same styles; it also means that, since the layout of the tutorial page is the same (the margins on either side of the main content is the same), there's no wasted space around the tutorial content.</p>
+                        <p>It was also about time to make the site responsive. I had built the site for desktop first, which is probably not the best way to do it these days, so I wanted the mobile site to look mostly like the desktop version. All of this is done using media queries<a class="cite-link" href="#cite-16">[16]</a>. For a start, I thought there would be too much extra space around the posts on screen sizes less than about <strong>1500px</strong> but more than <strong>1000px</strong>, so I removed most (down to <strong>1%</strong>) of the right padding on the <strong>#wrapper</strong>. I then defined the mobile site as less than <strong>1000px</strong>; I removed the margins of the <strong>#wrapper</strong> and made the sidebar have a relative, instead of absolute, position using <strong>position: relative</strong>, so that it doesn't move.</p>
+                        <h3>Summary:</h3>
+                        <ul>
+                            <li>Added hidden headings to <strong data-tag>section</strong> tags.</li>
+                            <li>Cleaned up the HTML of tag elements by using attribute selectors.</li>
+                            <li>Moved navigation list to the sidebar.</li>
+                            <li>Made the page responsive using media queries.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="post-7" class="post">
+                    <header>
+                        <h2 class="title">Week 7: Starting the tutorial, flexible images</h2>
+                        <div class="desc">
+                            <h4 class="author">Jacob Shirley</h4>
+                            <h4 class="date">
+                                <time datetime="2016-12-02">December 2nd, 2016</time>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>This week I started writing my tutorial on making a responsive and easily customisable navigation bar using flexbox. Through the page I want to give examples using JSFiddle, which allows you to embed HTML, CSS, and JavaScript in a webpage, as well as display the result. To do this they provide a script which can be copied and pasted into your page.</p>
+                        <p>I also started work on making the images for my blog posts flexible. I only have one image on my page that was too big (oldpage.png) so I used Paint.NET to change the quality percentage to 60%, meaning that the image size is 1142x571. I also set the color depth to 8 bit, making the overall file size 47.4 kb, down from 133kb. There was also an image in one of my posts that I hadn't credited or could have been copyrighted, so I removed it and found an image on pixabay<a class="cite-link" href="#cite-14">[14]</a> to replace it with. In previous weeks I'd made sure images used <strong>width: 100%</strong> in the CSS.
+                        </p>
+                        <h3>Summary:</h3>
+                        <ul>
+                            <li>Started my tutorial.</li>
+                            <li>Made images flexible.</li>
+                            <li>Replaced an image that wasn't copyright-free with a copyright-free one.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="post-8" class="post">
+                    <header>
+                        <h2 class="title">Week 8: Hamburger menu, cleaning up CSS, using the nav tag</h2>
+                        <div class="desc">
+                            <h4 class="author">Jacob Shirley</h4>
+                            <h4 class="date">
+                                <time datetime="2016-12-16">December 16th, 2016</time>
+                            </h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>For this week's task I decided to make the table of contents use a hamburger icon on small screen using only CSS. For the icon itself I looked into ways to make it generated by CSS, so that no extra images would be needed to be loaded. I ended up using the <strong>pseudo gradient</strong> CSS code on CSS Tricks<a class="cite-link" href="#cite-17">[17]</a> for the task.</p>
+                        <p>With the icon ready I then needed to set the initial table of contents height so that only the title was showing and not the list items. I set it to 2em, which is roughly the size of the <strong data-tag>h1</strong> tag. Finally I needed it to expand to it's normal size when hovered over, so I added the pseudo class<a class="cite-link" href="#cite-18">[18]</a> <strong>:hover</strong> to the <strong>.table-of-contents</strong> style. When hovered it would set the <strong>height</strong> property to <strong>auto</strong>.</p>
+                        <p>This all worked well on Desktop and Android devices, but on iOS mobiles there was a bug where the <strong>:hover</strong> pseudo-class won't activate on a touch event. To fix this I had to add an <strong>onclick="void(0)"</strong> to the table of contents section, so that iOS sees it as a button element. There is still a bug, however, where the table of contents won't close on iOS despite clicking away from it. Given more time I may be able to fix this but since I don't have an iOS mobile, it's very hard for me to test/bugfix at home.</p>
+                        <p>Other changes I made this week are removing old/unused CSS and wrapping the navigation bars (Navigation and Table of contents) with the <strong data-tag>nav</strong> element.
+                        </p>
+                        <h3>Summary:</h3>
+                        <ul>
+                            <li>Started the hamburger menu for small screen devices (i.e. mobiles).</li>
+                            <li>Removed old/unused CSS code.</li>
+                            <li>Wrapped navigation bars with <strong data-tag>nav</strong> elements.</li>
+                            <li>Validated CSS on the W3C CSS validator.</li>
+                            <li>Validated HTML on the W3C HTML validator.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="post-9" class="post">
+                    <header>
+                        <h2 class="title">Week 9: Contact form, TOC scrollbar, feedback</h2>
+                        <div class="desc">
+                            <h4 class="author">Jacob Shirley</h4>
+                            <h4 class="date"><time datetime="2017-01-06">January 6th, 2017</time></h4>
+                        </div>
+                    </header>
+                    <div class="content">
+                        <p>For week 9 I started working on the contact form. I used the HTML on the week 9 course tutorial page<a class="cite-link" href="#cite-19">[19]</a> as a basic outline for the form. I then started styling it in the CSS document: I removed the border on the <strong>fieldset</strong> tags, made the fonts look better on <strong>label</strong> and <strong>legend</strong>, and disabled horizontal resizing of the <strong>textarea</strong> using <strong>resize: vertical</strong>, among other things.</p>
+                        <p>I solved a problem where some of the table of contents would not be visible when the browser viewport was too small, and there was no scrollbar. To fix this, I found a stack overflow solution<a class="cite-link" href="#cite-20">[20]</a> and I set the <strong>top</strong> and <strong>bottom</strong> CSS properties on the sidebar to <strong>0</strong>, and set <strong>overflow-y</strong> to <strong>auto</strong>. Now when the viewport is too small a scrollbar appears.</p>
+                        <p>Finally I asked a few family members and friends to give me feedback on the site. The main response was that I could have used some more colour to make it look more interesting, but they said they liked the sidebar and how it stays visible when scrolling.</p>
+                        <h3>Summary:</h3>
+                        <ul>
+                            <li>Made and styled the contact form.</li>
+                            <li>Fixed a table of contents scrollbar bug.</li>
+                            <li>Got feedback.</li>
+                            <li>Validated HTML and CSS.</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+            <section>
+                <a id="html-logo" href="http://www.w3.org/html/logo/">
+                    <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+                </a>
+                <h2>References</h2>
+                <!--
+                <ol>
+                    <li><a href="http://validator.w3.org/">W3C HTML validator</a></li>
+                    <li><a href="http://html5doctor.com/element-index/">HTML5Doctor</a></li>
+                    <li><a href="http://jigsaw.w3.org/css-validator/">W3C CSS validator</a></li>
+                    <li><a href="https://jsfiddle.net">jsfiddle.net, a HTML/CSS/JavaScript prototyper</a></li>
+                    <li><a href="http://www.cssmatic.com/box-shadow">Box shadow generator</a></li>
+                    <li><a href="https://fonts.google.com/">Google Fonts</a></li>
+                    <li><a href="https://jquery.com/">jQuery, a library to make common JavaScript tasks easier</a></li>
+                    <li><a href="generate-post.html">Post Generator</a></li>
+                    <li><a href="http://wicky.nillia.ms/enquire.js/">enquire.js, a JavaScript media query library</a></li>
+                    <li><a href="http://www.w3schools.com/css/css_attribute_selectors.asp">W3C CSS Attribute Selector page</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">Mozilla media queries guide</a></li>
+                    <li><a href="https://pixabay.com/en/kuala-lumpur-twins-malaysia-1820944/">Kuala Lumpur pixabay image</a></li>
+                    <li><a href="http://www.cem.brighton.ac.uk/staff/esg1/ci135/tutorial09/tutorial09.html">Week 9 course tutorial page</a></li>
+                    <li><a href="http://stackoverflow.com/questions/16094785/have-a-fixed-position-div-that-needs-to-scroll-if-content-overflows">Stack overflow position:fixed scrollbar solution</a></li>
+                </ol>-->
+                <ol class="references">
+                    <li id="cite-1">W3C. <em>The W3C Markup Validation Service</em>. [ONLINE] Available at: <u><a href="http://validator.w3.org/">http://validator.w3.org/</a></u>. [Accessed 10 October 2016].</li>
+                    <li id="cite-2">HTML5Doctor. 2016. <em>Element Index</em>. [ONLINE] Available at: <u><a href="http://html5doctor.com/about/">http://html5doctor.com/about/</a></u>. [Accessed 10 October 2016].</li>
+                    <li id="cite-3">Lipsum. <em>Lorum Ipsum Generator</em>. [ONLINE] Available at: <u><a href="http://www.lipsum.com/">http://www.lipsum.com/</a></u>. [Accessed 22 October 2016].</li>
+                    <li id="cite-4"><em>Cat Image</em>. Photograph. [ONLINE] Available at: <u><a href="https://lh3.googleusercontent.com/nkfMnJ3KXyJ0rJLxHhBZtYmxFBKu5lk8Xr_FnG2UkLgGfnFv9G1ZU7HbSiNMTzlFG1ARG0s=s630-fcrop64=1,000007efffffee09">https://lh3.googleusercontent.com/nkfMnJ3KXyJ0rJLxHhBZtYmxFBKu5lk8Xr_FnG2UkLgGfnFv9G1ZU7HbSiNMTzlFG1ARG0s=s630-fcrop64=1,000007efffffee09</a></u>. [Accessed 22 October 2016].</li>
+                    <li id="cite-5">JSFiddle. <em>Create a new fiddle</em>. [ONLINE] Available at: <u><a href="https://jsfiddle.net">https://jsfiddle.net</a></u>. [Accessed 24 October 2016].</li>
+                    <li id="cite-6">CSSmatic. 2013. <em>Box Shadow CSS Generator | CSSmatic</em>. [ONLINE] Available at: <u><a href="http://www.cssmatic.com/box-shadow">http://www.cssmatic.com/box-shadow</a></u>. [Accessed 24 October 2016].</li>
+                    <li id="cite-7">Google. <em>Google Fonts</em>. [ONLINE] Available at: <u><a href="https://fonts.google.com/">https://fonts.google.com/</a></u>. [Accessed 24 October 2016].</li>
+                    <li id="cite-8">jQuery. <em>jQuery</em>. [ONLINE] Available at: <u><a href="https://jquery.com/">https://jquery.com/</a></u>. [Accessed 24 October 2016].</li>
+                    <li id="cite-9">Shirley, J. 2016. <em>Generate Post</em>. [ONLINE] Available at: <u><a href="generate-post.html">generate-post.html</a></u>. [Accessed 24 October 2016].</li>
+                    <li id="cite-10">Shirley, J. 2016. <em>Image of the original version of the page without any styling</em>. Screenshot. [ONLINE] Available at: <u><a href="images/oldpage.png">images/oldpage.png</a></u>. [Accessed 24 October 2016].</li>
+                    <li id="cite-11">W3C. <em>The W3C CSS Validation Service</em>. [ONLINE] Available at: <u><a href="http://jigsaw.w3.org/css-validator/">http://jigsaw.w3.org/css-validator/</a></u>. [Accessed 24 October 2016].</li>
+                    <li id="cite-12">Shirley, J. 2013. <em>script.js, the main script for this site</em>. [ONLINE] Available at: <u><a href="js/script.js">script.js</a></u>. [Accessed 28 October 2016].</li>
+                    <li id="cite-13">Williams, N. 2013. <em>Awesome Media Queries in JavaScript - enquire.js</em>. [ONLINE] Available at: <u><a href="http://wicky.nillia.ms/enquire.js/">http://wicky.nillia.ms/enquire.js/</a></u>. [Accessed 28 October 2016].</li>
+                    <li id="cite-14">pixabay. 2016. <em>Free photo: Kuala Lumpur,...</em>. [ONLINE] Available at: <u><a href="https://pixabay.com/en/kuala-lumpur-twins-malaysia-1820944/">https://pixabay.com/en/kuala-lumpur-twins-malaysia-1820944/</a></u>. [Accessed 2 December 2016].</li>
+                    <li id="cite-15">w3schools. <em>CSS Attribute Selector</em>. [ONLINE] Available at: <u><a href="http://www.w3schools.com/css/css_attribute_selectors.asp">http://www.w3schools.com/css/css_attribute_selectors.asp</a></u>. [Accessed 30 October 2016].</li>
+                    <li id="cite-16">Mozilla. <em>Using media queries - CSS | MDN</em>. [ONLINE] Available at: <u><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries</a></u>. [Accessed 30 October 2016].</li>
+                    <li id="cite-17">Coyier, C. 2012. <em>Three Line Menu Navicon | CSS-Tricks</em>. [ONLINE] Available at: <u><a href="https://css-tricks.com/three-line-menu-navicon/">https://css-tricks.com/three-line-menu-navicon/</a></u>. [Accessed 16 December 2016].</li>
+                    <li id="cite-18">w3schools. <em>CSS Pseudo-classes</em>. [ONLINE] Available at: <u><a href="http://www.w3schools.com/Css/css_pseudo_classes.asp">http://www.w3schools.com/Css/css_pseudo_classes.asp</a></u>. [Accessed 16 December 2016].</li>
+                    <li id="cite-19">Guy, E. <em>CI135 Introduction to web development | Lab tutorial Week 9</em>. [ONLINE] Available at: <u><a href="http://www.cem.brighton.ac.uk/staff/esg1/ci135/tutorial09/tutorial09.html">http://www.cem.brighton.ac.uk/staff/esg1/ci135/tutorial09/tutorial09.html</a></u>. [Accessed 6 January 2017].</li>
+                    <li id="cite-20">Stack Overflow. 2013. <em>Have a fixed position div that needs to scroll if content overflows</em>. [ONLINE] Available at: <u><a href="http://stackoverflow.com/questions/16094785/have-a-fixed-position-div-that-needs-to-scroll-if-content-overflows">http://stackoverflow.com/questions/16094785/have-a-fixed-position-div-that-needs-to-scroll-if-content-overflows</a></u>. [Accessed 6 January 2017].</li>
+                </ol>
+            </section>
+        </main>
+        <!--Close main page content -->
+        <footer>
+            <!--Footer content -->
+            <a id="go-to-top" href="#">Top</a>
+            <small>&copy; 2017, Jacob Shirley.</small>
+        </footer>
+    </div>
+    <!--Close 'wrapper' div -->
+</body>
+<!--Close 'body' -->
+
+</html>

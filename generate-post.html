@@ -1,0 +1,74 @@
+<!doctype html>
+<!--HTML5 doctype declaration -->
+<html lang="en">
+<!--default language of the document content -->
+
+<head>
+    <meta charset="utf-8">
+    <!--character encoding for the document (Unicode) -->
+    <title>Generate Post</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type "text/css" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Proza+Libre|Roboto|Work+Sans" rel="stylesheet">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <!--web page title -->
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Generate Post</h1>
+        <br />
+        <form onsubmit="return false;" style="float:left">
+            Title:
+            <input type="text" name="title">
+            <br> Content:
+            <textarea rows="10" name="content"></textarea>
+            <br> Demo:
+            <textarea rows="10" name="demo"></textarea>
+            <br> Summary:
+            <textarea rows="10" name="summary"></textarea>
+            <br>
+            <input type="submit" value="Generate">
+        </form>
+        <textarea id="output" rows="20" style="width:500px; float: right"></textarea>
+    </div>
+    <script>
+    function submitMe() {
+        var title = $("input[name='title']").val();
+        var content = $("textarea[name='content']").val();
+        var demo = $("textarea[name='demo']").val();
+        var summaryItems = $("textarea[name='summary']").val().split("\n");
+
+        var date = moment().format('MMMM Do, YYYY');
+        var datetime = moment().format('YYYY-MM-DD');
+
+        content = "<p>" + content.split("\n\n").join("</p><p>") + "</p>";
+
+        var str = '<article class="post"><header><h2 class="title">' + title + '</h2><div class="row-two"><h4 class="author">Jacob Shirley</h4><h4 class="date"><time datetime="' + datetime + '">' + date + '</time></h4></div></header><div class="content">' + content;
+
+        if (demo.length > 0) {
+            str += '<h3>Demo:</h3>' + demo;
+        }
+
+        if ($("textarea[name='summary']").val().length > 0) {
+            str += '<h3>Summary:</h3><ul>';
+
+            $.each(summaryItems, function(i, el) {
+                str += '<li>' + el + '</li>';
+            });
+
+            str += '</ul>';
+        }
+
+        str += '</div></article>';
+
+        $("#output").val(str);
+    }
+
+    $("form").submit(submitMe);
+    </script>
+</body>
+<!--Close 'body' -->
+
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<!--HTML5 doctype declaration -->
+<html lang="en">
+<!--default language of the document content -->
+
+<head>
+    <!--character encoding for the document (Unicode) -->
+    <meta charset="utf-8">
+    <!--web page title -->
+    <title>Using the Java instrumentation API</title>
+    <!--Set the viewport meta for media queries -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--Load stylesheets--> 
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Proza+Libre|Roboto|Work+Sans" rel="stylesheet">
+    <!--Load scripts-->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/enquire/dist/enquire.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <!--The main header for the page -->
+    <header id="page-title">
+        <h1>Using the Java instrumentation API</h1>
+        <h4>Jacob Shirley</h4>
+    </header>
+    <!--The navigation sidebar-->
+    <aside id="left-sidebar">
+        <section class="navigation">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="index.html" class="link-item">Journal</a></li>
+                <li><a href="contact.html" class="link-item">Contact</a></li>
+            </ul>
+        </section>
+        <section class="table-of-contents" onclick="void(0)">
+            <h3>Table of contents<span id="hamburger"></span></h3>
+            <nav>
+                <ul>
+                    <li><a href="#introduction" class="link-item">Introduction</a></li>
+                    <li><a href="#premain-method" class="link-item">"premain" method</a></li>
+                    <li><a href="#transformer-class" class="link-item">Transformer class</a></li>
+                    <li><a href="#manifest-file" class="link-item">Manifest file</a></li>
+                    <li><a href="#using-the-agent" class="link-item">Using the agent</a></li>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <div id="wrapper">
+        <!--The 'wrapper' div contains all the page content and can be styled -->
+        <main>
+            <!--The main page content -->
+            <section>
+                <!-- This is a hidden header just for screen readers -->
+                <h2 class="hidden">Tutorial</h2>
+                <article class="post">
+                    <figure class="float-right">
+                        <img src="images/instrumentation.gif" alt="Diagram of how the JVM loads classes" />
+                        <figcaption>Source: Java Agents. Diagram of how the JVM loads classes<a class="cite-link" href="#cite-1">[1]</a></figcaption>
+                    </figure>
+
+                    <h2 id="introduction">Introduction</h2>
+
+                    <p>A relatively unknown feature in Java is the instrumentation API. It enables a programmer to modify classes as they are loaded by the Java Virtual Machine, making it highly useful for optimisation or removing unwanted parts of code.</p>
+
+                    <p>When a class gets loaded by the JVM, it checks to see if there are any so-called <strong>agents</strong> attached. Each agent is basically a separate application contained in a .jar file, with a method called "premain" instead of "main" being called initially.</p>
+
+                    <h2 id="premain-method">"premain" method</h2>
+
+                    <p>This "premain" method takes two parameters: a string containing the arguments passed to the JVM, and another one of type <strong>Instrumentation</strong>. This parameter is what we will use to attach a class tranformer for modifying classes.</p>
+
+                    <p><em>(N.B. All code displayed here is for education purposes)</em></p>
+                    <pre class="prettyprint">
+package org.conexus.webautomator.agent;
+
+import java.lang.instrument.ClassFileTransformer;
+import java.lang.instrument.Instrumentation;
+
+import org.conexus.webautomator.agent.transformers.RemoveLicenseCheck;
+
+public class Agent {
+    public static void premain(String agentArguments, Instrumentation instrumentation){
+        System.out.println("Running agent");
+        
+        ClassFileTransformer transformer = new RemoveLicenseCheck(); //This is a class tranformer to remove a license check.
+        instrumentation.addTransformer(transformer); //Add the transformer.
+    }
+}</pre>
+                    <p>As can be seen above, we import the <strong>java.lang.instrument.*</strong> classes. We import any class transformer we like (they can be defined anywhere). Then we set up the instrumentation in a <strong>premain</strong> method.</p>
+
+                    <h3 id="transformer-class">Transformer class</h3>
+
+                    <p>A transformer class is what processes the incoming class files loaded by the JVM. It contains a method called <em>transform</em> which modifies the class and outputs the new one.</p>
+
+                    <p>First it will have to identify certain classes to modify. Then it can look for methods/fields to modify using a bytecode modification library. The library I'm using is <strong>ASM</strong>. As of the time of writing, the latest version is ASM 5.2<a class="cite-link" href="#cite-2">[2]</a>. I won't go into much detail on how to use it as there are much more specific articles about it on the web.</p>
+
+                    <p>Each class transform must implement the transform method. This method takes four parameters: the classloader loading the class, the class name, the class itself, a protection domain, which describes the permissions of the class, and the class data as an array of bytes. It returns the class in byte form.</p>
+
+                    <p><em>(N.B. All code displayed here is for education purposes)</em></p>
+                    <pre class="prettyprint">package org.conexus.webautomator.agent.transformers;
+
+import java.lang.instrument.ClassFileTransformer;
+import java.lang.instrument.IllegalClassFormatException;
+import java.security.ProtectionDomain;
+import java.util.List;
+
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.InsnList;
+import org.objectweb.asm.tree.MethodNode;
+
+public class RemoveLicenseCheck implements ClassFileTransformer{
+
+    @Override
+    public byte[] transform(ClassLoader classLoader, String className, Class&lt;?&gt; cls, ProtectionDomain protectionDomain, byte[] classBytes)
+            throws IllegalClassFormatException {
+        
+        if (className.equals("com/teamdev/jxbrowser/chromium/internal/ipc/IPC")) { //check if we're in the right class
+            ClassReader cr = new ClassReader(classBytes); //create a class reader to read the parts of the class
+            ClassNode cn = new ClassNode(); //a datastore for the various parts of the class (methods, fields, etc)
+            cr.accept(cn, ClassReader.SKIP_DEBUG); //process the class
+            
+            List methods = cn.methods; //get the methods
+            for (int i = 0; i &lt; methods.size(); i++) { //loop through the methods
+                MethodNode method = methods.get(i);
+                
+                if (method.name.equals("")) { //if the name of the method is the constructor ( = constructor), continue
+                    InsnList insns = method.instructions; //get the bytecode instructions of the class as a list
+                    
+                    insns.remove(insns.get(2)); //remove the second instruction
+                    insns.remove(insns.get(2)); //remove the third instruction (2 because the first one was removed)
+
+                    break;
+                }
+            }
+            
+            ClassWriter cw = new ClassWriter(cr, ClassWriter.COMPUTE_MAXS|ClassWriter.COMPUTE_FRAMES); //create a class writer
+            cn.accept(cw); //write the class
+            
+            return cw.toByteArray(); //return the modified class in bytes
+        }
+        
+        return classBytes; //return the original class in bytes
+    }
+}
+</pre>
+                    <h3 id="manifest-file">Manifest file</h3>
+
+                    <p>Now we need to create a manifest file for the agent.jar. All it needs is a Pre-Main entry containing the name of the class containing the premain method. It may also need a Class-Path set to load libraries, such as the ASM library.<p>
+
+                    <pre class="prettyprint">Premain-Class: org.conexus.bot.agent.Agent
+Class-Path: lib</pre> 
+
+                    <p>In a console we can now run <strong>jar cvmf [manifest file] [output file] -C [class files directory] .</strong>. This will output the .jar file somewhere.</p>
+
+                    <h3 id="using-the-agent">Using the agent</h3>
+
+                    <p>Finally to actually use this agent, we need to load with the main application. We need to add <strong>-javaagent:[agent jar file]</strong> to the list of arguments used to run the main program.</p>
+                </article>
+            </section>
+            <section>
+                <a id="html-logo" href="http://www.w3.org/html/logo/">
+                    <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+                </a>
+                <h2>References</h2>
+                <ol class="references">
+                    <li id="cite-1">Šelajev, O. 2015. <em>Java Agents</em>. [ONLINE] Available at: <u><a href="http://www.barcelonajug.org/2015/04/java-agents.html">http://www.barcelonajug.org/2015/04/java-agents.html</a></u>. [Accessed 11 January 2017].</li>
+                    <li id="cite-2">OW2 Consortium. 2016. <em>ASM 5.2</em>. [ONLINE] Available at: <u><a href="http://asm.ow2.org/">http://asm.ow2.org/</a></u>. [Accessed 11 January 2017].</li>
+                </ol>
+            </section>
+        </main>
+        <!--Close main page content -->
+        <footer>
+            <!--Footer content -->
+            <a id="go-to-top" href="#">Top</a>
+            <small>&copy; 2017, Jacob Shirley.</small>
+        </footer>
+    </div>
+    <!--Close 'wrapper' div -->
+</body>
+<!--Close 'body' -->
+
+</html>
